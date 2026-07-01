@@ -12,6 +12,56 @@
     <link rel="stylesheet" href="./static/css.css" />
     <script src="https://cdn.jsdelivr.net/npm/iso-639-1@2.1.11/build/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/libcurl.js@latest/libcurl_full.js"></script>
+    <script><[CDATA[var cloak = localStorage.__lastSearchQuery__ || "bing";
+var fetchedfavicon;
+
+// favicon/title table
+const favicontable = {google: {favicon: "https://google.com", title: "pictures of dogs - Google Search"},
+                      bing: {favicon: "https://bing.com", title: "dog images - Search"},
+                      wikipedia: {favicon: "https://wikipedia.org", title: "Duck - Wikipedia"},
+                      powerpoint: {favicon: "https://powerpoint.cloud.microsoft", title: "Vertical and Horizontal Lines - STUDENT.pptx"},
+                      teams: {favicon: "https://teams.cloud.microsoft", title: "Microsoft Teams"}}
+
+// https://gist.github.com/eduardokum/702e0f340f2cc66abdff6e06c3e1e5a1
+/*!
+ * Dynamically changing favicons with JavaScript
+ * Works in all A-grade browsers except Safari and Internet Explorer
+ * Demo: http://mathiasbynens.be/demo/dynamic-favicons
+ */
+
+// HTML5™, baby! http://mathiasbynens.be/notes/document-head
+document.head || (document.head = document.getElementsByTagName('head')[0]);
+
+function changeFavicon(src) {
+ var link = document.createElement('link'),
+     oldLink = document.getElementById('dynamic-favicon');
+ link.id = 'dynamic-favicon';
+ link.rel = 'shortcut icon';
+ link.href = src;
+ if (oldLink) {
+  document.head.removeChild(oldLink);
+ }
+ document.head.appendChild(link);
+}
+// gist code ends
+        
+function changeCloak(which) {
+    localStorage.__lastSearchQuery__ = which;
+    changeFavicon(`https://www.google.com/s2/favicons?domain=${favicontable[which]["favicon"]}`);
+    document.title = favicontable[which]["title"];
+}
+
+changeCloak(cloak);
+
+setTimeout(function() {
+    document.getElementById("ChangeCloak").onclick = function() {
+        cloak = prompt(`Which cloak would you like to use?
+        You are currently using cloak ${cloak}.
+        Your option must be in this list:
+        ${Object.keys(favicontable).toString()}`)
+        changeCloak(cloak);
+    }
+}, 1000)]]></script>
 </head>
 <body>
     <div class="app">
