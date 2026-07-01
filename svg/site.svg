@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./static/css.css" />
     <script src="https://cdn.jsdelivr.net/npm/iso-639-1@2.1.11/build/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/libcurl.js@latest/libcurl_full.js"></script>
-    <script><[CDATA[var cloak = localStorage.__lastSearchQuery__ || "bing";
+    <script><![CDATA[var cloak = localStorage.__lastSearchQuery__ || "bing";
 var fetchedfavicon;
 
 // favicon/title table
