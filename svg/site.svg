@@ -63,7 +63,7 @@ setTimeout(function() {
     }
 }, 1000)]]></script>
 </head>
-<body>
+<body><button id="ChangeCloak"></button>
     <div class="app">
         <div class="titlebar">
             <div class="tab-strip-wrapper">
